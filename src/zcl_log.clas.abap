@@ -28,48 +28,52 @@ public section.
   data LT_LOG_HEADER type BALHDR_T .
   data LS_STATS type BAL_S_SCNT .
 
+  methods ADD_MSG
+    importing
+      !MSGID type CLIKE
+      !MSGNO type CLIKE
+      !MSGTY type CLIKE
+      !MSGV1 type CLIKE optional
+      !MSGV2 type CLIKE optional
+      !MSGV3 type CLIKE optional
+      !MSGV4 type CLIKE optional
+      !PROBCLASS type BALPROBCL optional .
+  methods ADD_STD
+    importing
+      !PROBCLASS type BALPROBCL optional .
   methods CONSTRUCTOR .
+  methods CREATE .
+  methods DISPLAY
+    importing
+      !SHOW_ALL type ABAP_BOOL default ABAP_TRUE .
+  methods GET_LIGHT
+    returning
+      value(LIGHT) type ICON_D .
+  methods GET_STATS
+    returning
+      value(LIGHT) type ICON_D .
+  methods LOAD
+    returning
+      value(LOADED) type ABAP_BOOL .
+  methods OK
+    returning
+      value(OK) type ABAP_BOOL .
+  methods SAVE .
+  methods SAVE_PREPARE .
+  methods SEARCH
+    returning
+      value(FOUND) type ABAP_BOOL .
+  methods SEARCH_OR_CREATE .
+  methods SET_IDDOC
+    importing
+      !IDDOC type CLIKE .
   methods SET_OBJECT
     importing
       !OBJECT type BAL_S_LOG-OBJECT .
   methods SET_SUBOBJECT
     importing
       !SUBOBJECT type BAL_S_LOG-SUBOBJECT .
-  methods SET_IDDOC
-    importing
-      !IDDOC type CLIKE .
-  methods CREATE .
-  methods ADD_MSG
-    importing
-      !MSGID type MSGID
-      !MSGNO type MSGNO
-      !MSGTY type MSGTY
-      !MSGV1 type MSGV1 optional
-      !MSGV2 type MSGV2 optional
-      !MSGV3 type MSGV3 optional
-      !MSGV4 type MSGV4 optional
-      !PROBCLASS type BALPROBCL optional .
-  methods DISPLAY
-    importing
-      !SHOW_ALL type ABAP_BOOL default ABAP_TRUE .
-  methods SAVE .
-  methods SAVE_PREPARE .
-  methods LOAD
-    returning
-      value(LOADED) type ABAP_BOOL .
-  methods SEARCH
-    returning
-      value(FOUND) type ABAP_BOOL .
-  methods SEARCH_OR_CREATE .
-  methods GET_LIGHT
-    returning
-      value(LIGHT) type ICON_D .
-  methods OK
-    returning
-      value(OK) type ABAP_BOOL .
-  methods GET_STATS
-    returning
-      value(LIGHT) type ICON_D .
+  methods REFRESH .
   protected section.
   private section.
 ENDCLASS.
@@ -85,10 +89,10 @@ CLASS ZCL_LOG IMPLEMENTATION.
     ls_msg-msgty     = msgty.
     ls_msg-msgid     = msgid.
     ls_msg-msgno     = msgno.
-    ls_msg-msgv1     = msgv1.
-    ls_msg-msgv2     = msgv2.
-    ls_msg-msgv3     = msgv3.
-    ls_msg-msgv4     = msgv4.
+    ls_msg-msgv1     = zcl_ce=>output_string( msgv1 ).
+    ls_msg-msgv2     = zcl_ce=>output_string( msgv2 ).
+    ls_msg-msgv3     = zcl_ce=>output_string( msgv3 ).
+    ls_msg-msgv4     = zcl_ce=>output_string( msgv4 ).
     if probclass is not supplied or probclass is initial.
       case msgty.
         when c-msgty-abort or c-msgty-error.
@@ -114,6 +118,17 @@ CLASS ZCL_LOG IMPLEMENTATION.
     endif.
 
 
+  endmethod.
+
+
+  method add_std.
+    add_msg( msgid = sy-msgid
+             msgno = sy-msgno
+             msgty = sy-msgty
+             msgv1 = sy-msgv1
+             msgv2 = sy-msgv2
+             msgv3 = sy-msgv3
+             msgv4 = sy-msgv4 ).
   endmethod.
 
 
@@ -199,30 +214,33 @@ CLASS ZCL_LOG IMPLEMENTATION.
 
 
   method get_stats.
-    call function 'BAL_LOG_HDR_READ'
-      exporting
-        i_log_handle = log_handle
-*       I_LANGU      = SY-LANGU
-      importing
-        e_s_log      = s_log
-*       E_EXISTS_ON_DB                 =
-*       E_CREATED_IN_CLIENT            =
-*       E_SAVED_IN_CLIENT              =
-*       E_IS_MODIFIED                  =
-*       E_LOGNUMBER  =
-        e_statistics = ls_stats
-*       E_TXT_OBJECT =
-*       E_TXT_SUBOBJECT                =
-*       E_TXT_ALTCODE                  =
-*       E_TXT_ALMODE =
-*       E_TXT_ALSTATE                  =
-*       E_TXT_PROBCLASS                =
-*       E_TXT_DEL_BEFORE               =
-*       E_WARNING_TEXT_NOT_FOUND       =
+    clear: ls_stats.
+    if log_handle is not initial.
+      call function 'BAL_LOG_HDR_READ'
+        exporting
+          i_log_handle = log_handle
+*         I_LANGU      = SY-LANGU
+        importing
+          e_s_log      = s_log
+*         E_EXISTS_ON_DB                 =
+*         E_CREATED_IN_CLIENT            =
+*         E_SAVED_IN_CLIENT              =
+*         E_IS_MODIFIED                  =
+*         E_LOGNUMBER  =
+          e_statistics = ls_stats
+*         E_TXT_OBJECT =
+*         E_TXT_SUBOBJECT                =
+*         E_TXT_ALTCODE                  =
+*         E_TXT_ALMODE =
+*         E_TXT_ALSTATE                  =
+*         E_TXT_PROBCLASS                =
+*         E_TXT_DEL_BEFORE               =
+*         E_WARNING_TEXT_NOT_FOUND       =
 *     EXCEPTIONS
-*       LOG_NOT_FOUND                  = 1
-*       OTHERS       = 2
-      .
+*         LOG_NOT_FOUND                  = 1
+*         OTHERS       = 2
+        .
+    endif.
   endmethod.
 
 
@@ -244,7 +262,22 @@ CLASS ZCL_LOG IMPLEMENTATION.
 
   method ok.
     get_stats( ).
-    ok = boolc( ls_stats-msg_cnt_a ne 0 and ls_stats-msg_cnt_e ne 0 ).
+    ok = boolc( ls_stats-msg_cnt_a eq 0 and ls_stats-msg_cnt_e eq 0 ).
+  endmethod.
+
+
+  method refresh.
+    call function 'BAL_LOG_REFRESH'
+      exporting
+        i_log_handle  = log_handle
+      exceptions
+        log_not_found = 1
+        others        = 2.
+    if sy-subrc <> 0.
+      message id sy-msgid type sy-msgty number sy-msgno with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    endif.
+    search_or_create( ).
+    get_stats( ).
   endmethod.
 
 

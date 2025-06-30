@@ -18,6 +18,11 @@
      <DESCRIPT>Agrega Mensaje</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>ADD_STD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Agrega Mensaje</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>C</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constantes</DESCRIPT>
@@ -71,6 +76,11 @@
      <CMPNAME>OK</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Determina no ha habido mensajes de error</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REFRESH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Borra los mensajes que estén en memoria</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>SAVE</CMPNAME>
@@ -130,7 +140,7 @@
      <CMPNAME>ADD_MSG</CMPNAME>
      <SCONAME>MSGTY</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>System Message Number</DESCRIPT>
+     <DESCRIPT>Message Type</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
@@ -158,6 +168,12 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>PROBCLASS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Application log: Message problem class</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_STD</CMPNAME>
      <SCONAME>PROBCLASS</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Application log: Message problem class</DESCRIPT>
