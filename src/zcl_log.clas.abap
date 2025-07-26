@@ -267,17 +267,19 @@ CLASS ZCL_LOG IMPLEMENTATION.
 
 
   method refresh.
-    call function 'BAL_LOG_REFRESH'
-      exporting
-        i_log_handle  = log_handle
-      exceptions
-        log_not_found = 1
-        others        = 2.
-    if sy-subrc <> 0.
-      message id sy-msgid type sy-msgty number sy-msgno with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    if log_handle is not initial.
+      call function 'BAL_LOG_REFRESH'
+        exporting
+          i_log_handle  = log_handle
+        exceptions
+          log_not_found = 1
+          others        = 2.
+      if sy-subrc <> 0.
+        message id sy-msgid type sy-msgty number sy-msgno with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      endif.
+      search_or_create( ).
+      get_stats( ).
     endif.
-    search_or_create( ).
-    get_stats( ).
   endmethod.
 
 
