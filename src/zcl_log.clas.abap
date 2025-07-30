@@ -122,13 +122,15 @@ CLASS ZCL_LOG IMPLEMENTATION.
 
 
   method add_std.
-    add_msg( msgid = sy-msgid
-             msgno = sy-msgno
-             msgty = sy-msgty
-             msgv1 = sy-msgv1
-             msgv2 = sy-msgv2
-             msgv3 = sy-msgv3
-             msgv4 = sy-msgv4 ).
+    if sy-msgid is not initial and sy-msgno is not initial.
+      add_msg( msgid = sy-msgid
+               msgno = sy-msgno
+               msgty = sy-msgty
+               msgv1 = sy-msgv1
+               msgv2 = sy-msgv2
+               msgv3 = sy-msgv3
+               msgv4 = sy-msgv4 ).
+    endif.
   endmethod.
 
 

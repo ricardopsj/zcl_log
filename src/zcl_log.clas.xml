@@ -4,13 +4,19 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_LOG</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>S</LANGU>
     <DESCRIPT>Log de Mensajes</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Log de Mensajes</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
     <SEOCOMPOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
@@ -23,8 +29,18 @@
      <DESCRIPT>Agrega Mensaje</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>ADD_STD</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Agrega Mensaje Standard</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>C</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Constantes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Constantes</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -33,8 +49,18 @@
      <DESCRIPT>CONSTRUCTOR</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>CREATE</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Crea el log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Crea el log</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -43,8 +69,18 @@
      <DESCRIPT>Muestra los mensajes</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Muestra los mensajes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>GET_LIGHT</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Semaforo que representa la gravedad de los mensajes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_LIGHT</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Semaforo que representa la gravedad de los mensajes</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -53,8 +89,18 @@
      <DESCRIPT>Semaforo que representa la gravedad de los mensajes</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>GET_STATS</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Semaforo que representa la gravedad de los mensajes</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>LOAD</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Lee los mensajes desde la base de datos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LOAD</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Lee los mensajes desde la base de datos</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -63,8 +109,18 @@
      <DESCRIPT>Application Log: Log Handle</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>LOG_HANDLE</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Application Log: Log Handle</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>LS_STATS</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Application Log: Statistics: Message Type Counter</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LS_STATS</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Application Log: Statistics: Message Type Counter</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -73,8 +129,18 @@
      <DESCRIPT>Application Log: Log header data table</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>LT_LOG_HEADER</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Application Log: Log header data table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>OK</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Determina no ha habido mensajes de error</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>OK</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Determina no ha habido mensajes de error</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -83,8 +149,18 @@
      <DESCRIPT>Borra los mensajes que estén en memoria</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>REFRESH</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Borra los mensajes que estén en memoria</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>SAVE</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Guardar mensajes en base de datos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SAVE</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Guardar mensajes en base de datos</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -93,8 +169,18 @@
      <DESCRIPT>Prepara el guardado</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>SAVE_PREPARE</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Prepara el guardado</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>SEARCH</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Lee los mensajes desde la base de datos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SEARCH</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Lee los mensajes desde la base de datos</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -103,8 +189,18 @@
      <DESCRIPT>Busca el log, si no existe lo crea</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>SEARCH_OR_CREATE</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Busca el log, si no existe lo crea</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>SET_IDDOC</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Setea ID de Documento al que se está registrando del log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_IDDOC</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Setea ID de Documento al que se está registrando del log</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
@@ -113,13 +209,28 @@
      <DESCRIPT>Setea el objecto de log</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>SET_OBJECT</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Setea el objecto de log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>SET_SUBOBJECT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Setea el sub objecto de log</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>SET_SUBOBJECT</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Setea el sub objecto de log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>S_LOG</CMPNAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Application Log: Log header data</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>S_LOG</CMPNAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Application Log: Log header data</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
@@ -132,8 +243,20 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGID</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Message identification</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
      <SCONAME>MSGNO</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>System Message Number</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGNO</SCONAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>System Message Number</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
@@ -144,8 +267,20 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGTY</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Message Type</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
      <SCONAME>MSGV1</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Message variable 01</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGV1</SCONAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Message variable 01</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
@@ -156,8 +291,20 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGV2</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Message variable 02</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
      <SCONAME>MSGV3</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Message variable 03</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGV3</SCONAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Message variable 03</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
@@ -168,8 +315,20 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>MSGV4</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Message variable 04</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
      <SCONAME>PROBCLASS</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Application log: Message problem class</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_MSG</CMPNAME>
+     <SCONAME>PROBCLASS</SCONAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Application log: Message problem class</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
@@ -179,9 +338,21 @@
      <DESCRIPT>Application log: Message problem class</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
+     <CMPNAME>ADD_STD</CMPNAME>
+     <SCONAME>PROBCLASS</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Application log: Message problem class</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
      <CMPNAME>GET_LIGHT</CMPNAME>
      <SCONAME>LIGHT</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Icon in text fields (substitute display, alias)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LIGHT</CMPNAME>
+     <SCONAME>LIGHT</SCONAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Icon in text fields (substitute display, alias)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
@@ -191,15 +362,33 @@
      <DESCRIPT>Icon in text fields (substitute display, alias)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
+     <CMPNAME>GET_STATS</CMPNAME>
+     <SCONAME>LIGHT</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Icon in text fields (substitute display, alias)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
      <CMPNAME>SET_OBJECT</CMPNAME>
      <SCONAME>OBJECT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Application log: Object name (Application code)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
+     <CMPNAME>SET_OBJECT</CMPNAME>
+     <SCONAME>OBJECT</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Application log: Object name (Application code)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
      <CMPNAME>SET_SUBOBJECT</CMPNAME>
      <SCONAME>SUBOBJECT</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Application Log: Subobject</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_SUBOBJECT</CMPNAME>
+     <SCONAME>SUBOBJECT</SCONAME>
+     <LANGU>S</LANGU>
      <DESCRIPT>Application Log: Subobject</DESCRIPT>
     </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
