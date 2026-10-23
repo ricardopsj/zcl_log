@@ -59,7 +59,7 @@ En el sistema deben existir el **objeto y subobjetos de log** (transacción SLG0
 |---|---|
 | `save( )` | Graba todos los logs en BD (`BAL_DB_SAVE` con `I_SAVE_ALL`), aplicando antes `save_prepare( )` |
 | `save_prepare( )` | `BAL_DB_SAVE_PREPARE` con las tablas públicas `lt_replace_message` / `lt_replace_context` (permite sustituir variables de mensaje o campos de contexto antes de grabar) |
-| `display( show_all )` | Muestra el log con el perfil estándar de log único (`BAL_DSP_LOG_DISPLAY`) en modalidad grid, con variantes de disposición propias (handle `LOG`) |
+| `display( show_all )` | Muestra con el perfil estándar de log único (`BAL_DSP_LOG_DISPLAY`) en modalidad grid, con variantes de disposición propias (handle `LOG`). No filtra por handle: muestra **todos los logs cargados en memoria**. El parámetro `show_all` no se usa |
 
 ### Estado / severidad
 
@@ -73,3 +73,10 @@ En el sistema deben existir el **objeto y subobjetos de log** (transacción SLG0
 
 - El constructor ejecuta `perform load in program saplsbal` para forzar la carga del grupo de funciones BAL (necesario en sistemas Unicode antes de usar sus módulos).
 - `s_log`, `lt_log_header` y `ls_stats` son públicos de solo lectura/acceso directo para escenarios avanzados (filtros propios, varios logs).
+
+## Problemas conocidos
+
+- **`probclass` se ignora si se informa.** `add_msg` solo asigna la clase de problema cuando el parámetro viene vacío; si se pasa un valor, el mensaje queda sin clase.
+- **Varios logs en la misma sesión.** `display( )` muestra y `save( )` graba todos los logs en memoria, no solo el de la instancia.
+- **Errores de los módulos BAL.** Se emiten con `MESSAGE ... TYPE sy-msgty`, lo que puede cancelar un job de fondo.
+- **`get_stats( )`** declara un parámetro de retorno `LIGHT` que nunca se asigna; el resultado útil queda en `ls_stats`.
