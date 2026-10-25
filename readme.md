@@ -82,6 +82,18 @@ Para **un log por elemento procesado** (por ejemplo, uno por archivo), se reutil
 ## Problemas conocidos
 
 - **`probclass` se ignora si se informa.** `add_msg` solo asigna la clase de problema cuando el parámetro viene vacío; si se pasa un valor, el mensaje queda sin clase.
-- **Varios logs en la misma sesión.** `display( )` muestra y `save( )` graba todos los logs en memoria, no solo el de la instancia.
+- **Varios logs en la misma sesión.** `display( )` muestra y `save( )` graba todos los logs en memoria, no solo el de la instancia. Para sacar de memoria los logs que ya no se necesitan (por ejemplo, los cargados solo para leer `get_light`):
+
+  ```abap
+  call function 'BAL_GLB_MEMORY_REFRESH'
+    exporting
+      i_refresh_all            = abap_false      " por defecto 'X': borra TODOS los logs en memoria
+      i_t_logs_to_be_refreshed = value bal_t_logh( for ls_header in ref_log->lt_log_header
+                                                   ( ls_header-log_handle ) )
+    exceptions
+      others                   = 1.
+  ```
+
+  Con `i_refresh_all = abap_true` (o sin pasar el parámetro) se vacía toda la memoria de logs.
 - **Errores de los módulos BAL.** Se emiten con `MESSAGE ... TYPE sy-msgty`, lo que puede cancelar un job de fondo.
 - **`get_stats( )`** declara un parámetro de retorno `LIGHT` que nunca se asigna; el resultado útil queda en `ls_stats`.
