@@ -43,6 +43,10 @@ En el sistema deben existir el **objeto y subobjetos de log** (transacción SLG0
 | `load( )` | Carga desde BD el log encontrado y toma su handle (`BAL_DB_LOAD`) |
 | `search_or_create( )` | Patrón habitual: si el log ya existe en BD lo carga, si no lo crea. Permite **acumular mensajes de varias ejecuciones en un mismo log** por número externo |
 | `refresh( )` | Vacía los mensajes del log en memoria (`BAL_LOG_REFRESH`) y lo vuelve a cargar/crear |
+| `msg_delete( s_msg_handle )` | Borra un mensaje del log (`BAL_LOG_MSG_DELETE`). `s_msg_handle` (`BALMSGHNDL`) es el handle del log más el número del mensaje, como lo entregan por ejemplo `BAL_GLB_SEARCH_MSG` o `BAL_LOG_MSG_ADD` (`E_S_MSG_HANDLE`) |
+| `msg_delete_all( )` | Borra todos los mensajes del log actual (`log_handle`), dejando su cabecera (`BAL_LOG_MSG_DELETE_ALL`). No hace nada si no hay log |
+
+Los dos actúan sobre el log en memoria; como cualquier otro cambio, se graban en BD con `save( )`.
 
 Los `set_*` solo guardan el valor en `s_log`, que se usa al crear o buscar. Hay que llamarlos **antes** de `create( )` o `search_or_create( )`; cambiarlos después no modifica la cabecera del log ya creado.
 

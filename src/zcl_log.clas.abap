@@ -55,6 +55,10 @@ public section.
   methods LOAD
     returning
       value(LOADED) type ABAP_BOOL .
+  methods MSG_DELETE
+    importing
+      !S_MSG_HANDLE type BALMSGHNDL .
+  methods MSG_DELETE_ALL .
   methods OK
     returning
       value(OK) type ABAP_BOOL .
@@ -259,6 +263,37 @@ CLASS ZCL_LOG IMPLEMENTATION.
       endif.
     endif.
     loaded = boolc( log_handle is not initial ).
+  endmethod.
+
+
+  method msg_delete.
+    call function 'BAL_LOG_MSG_DELETE'
+      exporting
+        i_s_msg_handle = s_msg_handle
+      exceptions
+        msg_not_found  = 1
+        log_not_found  = 2
+        others         = 3.
+    if sy-subrc <> 0.
+      message id sy-msgid type sy-msgty number sy-msgno
+              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    endif.
+  endmethod.
+
+
+  method msg_delete_all.
+    if log_handle is not initial.
+      call function 'BAL_LOG_MSG_DELETE_ALL'
+        exporting
+          i_log_handle  = log_handle
+        exceptions
+          log_not_found = 1
+          others        = 2.
+      if sy-subrc <> 0.
+        message id sy-msgid type sy-msgty number sy-msgno
+                with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      endif.
+    endif.
   endmethod.
 
 

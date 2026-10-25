@@ -134,6 +134,26 @@
      <DESCRIPT>Application Log: Log header data table</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>MSG_DELETE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Borra un mensaje del log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MSG_DELETE</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Borra un mensaje del log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MSG_DELETE_ALL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Borra todos los mensajes del log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MSG_DELETE_ALL</CMPNAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Borra todos los mensajes del log</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>OK</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Determina no ha habido mensajes de error</DESCRIPT>
@@ -366,6 +386,18 @@
      <SCONAME>LIGHT</SCONAME>
      <LANGU>S</LANGU>
      <DESCRIPT>Icon in text fields (substitute display, alias)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MSG_DELETE</CMPNAME>
+     <SCONAME>S_MSG_HANDLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Application Log: Message handle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>MSG_DELETE</CMPNAME>
+     <SCONAME>S_MSG_HANDLE</SCONAME>
+     <LANGU>S</LANGU>
+     <DESCRIPT>Application Log: Message handle</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>SET_OBJECT</CMPNAME>
