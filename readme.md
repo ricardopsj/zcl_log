@@ -72,6 +72,7 @@ En el sistema deben existir el **objeto y subobjetos de log** (transacción SLG0
 ## Notas
 
 - El constructor ejecuta `perform load in program saplsbal` para forzar la carga del grupo de funciones BAL (necesario en sistemas Unicode antes de usar sus módulos).
+- [`zcl_bdc`](https://github.com/ricardopsj/zcl_bdc) usa esta clase para registrar los mensajes de `CALL TRANSACTION`. Un log creado sin objeto (`create( )` sin `set_object`) sirve para mostrar mensajes en pantalla; para grabarlo hace falta un objeto de SLG0.
 - `s_log`, `lt_log_header` y `ls_stats` son públicos de solo lectura/acceso directo para escenarios avanzados (filtros propios, varios logs).
 
 ## Problemas conocidos
