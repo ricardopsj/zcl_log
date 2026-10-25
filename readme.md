@@ -44,6 +44,10 @@ En el sistema deben existir el **objeto y subobjetos de log** (transacción SLG0
 | `search_or_create( )` | Patrón habitual: si el log ya existe en BD lo carga, si no lo crea. Permite **acumular mensajes de varias ejecuciones en un mismo log** por número externo |
 | `refresh( )` | Vacía los mensajes del log en memoria (`BAL_LOG_REFRESH`) y lo vuelve a cargar/crear |
 
+Los `set_*` solo guardan el valor en `s_log`, que se usa al crear o buscar. Hay que llamarlos **antes** de `create( )` o `search_or_create( )`; cambiarlos después no modifica la cabecera del log ya creado.
+
+Para **un log por elemento procesado** (por ejemplo, uno por archivo), se reutiliza la misma instancia: `set_iddoc( ... )` y `create( )` por cada elemento, o `search_or_create( )` para seguir en el log de una ejecución anterior con el mismo número externo. `add_msg` escribe en el último log creado, y `display( )` / `save( )` muestran o graban todos los logs en memoria.
+
 ### Mensajes
 
 | Método | Descripción |
